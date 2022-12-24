@@ -7,7 +7,7 @@ import os
 
 class AxonDataset(Dataset):
     """" Inherits pytorch Dataset class to load Axon Dataset """
-    def __init__(self, data_name='crops64', folder='', type='train', transform=None):
+    def __init__(self, data_name='org64', folder='', type='train', transform=None):
         """
         :param data_name (string)- data name to load/ save
         :param folder- location of dataset
@@ -16,8 +16,6 @@ class AxonDataset(Dataset):
         self.data_name = data_name
         self.transform = transform
         mmap_mode = 'r'
-
-        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
         x_path = os.path.join(data_name + '_data_' + type + '.npy')
         y_path = os.path.join(data_name + '_mask_' + type + '.npy')
@@ -34,8 +32,6 @@ class AxonDataset(Dataset):
         """gets samples from data according to idx
         :param idx- index to take
         example: data[10] -to get the 10th data sample"""
-        __location__ = os.path.realpath(
-            os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
         sample_x_data = self.x_data[idx]
         sample_y_data = self.y_data[idx]
