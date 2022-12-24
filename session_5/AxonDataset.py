@@ -19,8 +19,8 @@ class AxonDataset(Dataset):
 
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-        x_path = os.path.join(__location__, 'npy_data', data_name + '_data_' + type + '.npy')
-        y_path = os.path.join(__location__,'npy_data', data_name + '_mask_' + type + '.npy')
+        x_path = os.path.join(data_name + '_data_' + type + '.npy')
+        y_path = os.path.join(data_name + '_mask_' + type + '.npy')
         self.x_data = np.load(x_path, mmap_mode=mmap_mode)
         self.y_data = np.load(y_path, mmap_mode=mmap_mode)
         self.len_data = len(self.x_data)
